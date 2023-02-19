@@ -50,6 +50,9 @@ networks:
 volumes:
   autossh-data:
     external:true
+```
+
+To use the above docker-compose template a Docker network and volume need to be created, The volume mapping to the ssh key to authorize the connection to the Tunnel host.
 
 
 
