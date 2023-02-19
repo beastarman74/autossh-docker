@@ -1,6 +1,9 @@
 # AutoSSH Docker container.
 Docker container to setup a robust ssh tunnel using AutoSSH.
 
+This image has only 100 ports exposed - 10000 to 100100. Having more ports exposed seemed to create a significant slow down in docker ps, portainer, and android docker apps when using multiple containers.
+
+Example docker-compose file:
 
 
 
@@ -13,8 +16,7 @@ Docker container to setup a robust ssh tunnel using AutoSSH.
 
 
 
-
-```
+```yaml
 version: '3'
 services:
   autossh:
