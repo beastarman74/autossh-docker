@@ -1,0 +1,1 @@
+	autossh -M 0 -i /data/${KEY} -o ServerAliveInterval=60 -o ServerAliveCountMax=10 -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -vv -4 -Nn -L *:${LOCALPORT}:${REMOTEHOST}:${REMOTEPORT} -p ${TUNNELPORT} ${TUNNELUSER}@${TUNNELHOST}

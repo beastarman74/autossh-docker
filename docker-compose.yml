@@ -1,0 +1,29 @@
+sshtunnel:
+    image: beastarman/ssh-tunnel
+    container_name: ssh-tunnel
+    ports:
+      - "10013:10013"
+    volumes:
+      - sshtunnel-data:/data/:ro   # point volume or path to location of ssh keys for the tunnel host
+        #
+    environment:
+      - TUNNELUSER=ubuntu
+      - TUNNELHOST=123.123.123.123   # IP Address or hostname of host
+      - TUNNELPORT=22
+      - REMOTEHOST=localhost
+      - LOCALPORT=10013  # use between 10001-10100
+      - REMOTEPORT=1234  # amend to the port of the remote service to tunnel to
+      #
+      - KEY=sshkey-filename
+      #     
+    restart: always
+    networks:
+       sshtunnel: 
+
+networks:
+  sshtunnel:
+     driver: bridge
+     name: sshtunnel
+
+volumes:
+  sshtunnel-data:
